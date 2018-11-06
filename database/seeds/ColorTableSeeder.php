@@ -11,6 +11,8 @@ class ColorTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      DB::table('colors')->insert(['name' => 'Red']);
+      DB::table('colors')->insert(['name' => 'Grey']);
+      DB::table('colors')->insert(['name' => 'Black']);
     }
 }
