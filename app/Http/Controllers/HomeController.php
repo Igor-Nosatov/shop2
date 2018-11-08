@@ -16,17 +16,18 @@ class HomeController extends Controller
 
      	$products = Product::latest()->first()->get();
          
-        $product_category1 = Product::with('category')
-        ->get()->where('category_id','=','1');
-        $product_category2 = Product::with('category')
-        ->get()->where('category_id','=','2');
-        $product_category3 = Product::with('category')
-        ->get()->where('category_id','=','3');
-        
+        $product_category1 = Product::with('category')->get()->where('category_id','=','1');
+        $product_category2 = Product::with('category')->get()->where('category_id','=','2');
+        $product_category3 = Product::with('category')->get()->where('category_id','=','3');
 
-     	return view("pages.home.home", compact(['categories',
-            'products','nav','product_category1',
-            'product_category2','product_category3']));
+        $fp_c1 = Product::with('category')->get()->where('category_id','=','1')->take(3);
+        $fp_c2 = Product::with('category')->get()->where('category_id','=','2')->take(3);
+        $fp_c3 = Product::with('category')->get()->where('category_id','=','3')->take(3);
+
+     	return view("pages.home.home", compact([
+            'categories','products','nav',
+            'product_category1','product_category2','product_category3'
+            ,'fp_c1','fp_c2','fp_c3']));
      }
 
 }

@@ -1,12 +1,4 @@
 
-</ul>
-<div class="tab-content" id="pills-tabContent">
-  
-  <div class="tab-pane  active" id="pills1" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-  <div class="tab-pane fade" id="pills2" role="tabpanel" aria-labelledby="pills-contact-tab">.zsdf</div>
-    <div class="tab-pane fade" id="pills3" role="tabpanel" aria-labelledby="pills-contact-tab">.zsdf</div>
-</div>
-
 
 <div class="section">
 			<!-- container -->
@@ -44,15 +36,7 @@
                       </div>
                       <div class="product-body">
                         <p class="product-category">
-                          @foreach ($product_category1 as $product)
-                              @if ($product->count('id')== 1)
-                                 @continue
-                              @endif
                                 {{ $product->category->name }}
-                              @if ($product->count('id')> 2)
-                              @break
-                              @endif
-                          @endforeach
                         </p>
                         <h3 class="product-name"><a href="#">{{ $product->name }}</a></h3>
                         <h4 class="product-price">{{ $product->price }}<del class="product-old-price">$990.00</del></h4>
