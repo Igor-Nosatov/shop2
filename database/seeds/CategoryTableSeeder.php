@@ -11,11 +11,11 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('categories')->insert(['name' => 'LaptopsChina']);
-      DB::table('categories')->insert(['name' => 'Smartphones']);
-      DB::table('categories')->insert(['name' => 'Cameras']);
-      DB::table('categories')->insert(['name' => 'Accessories ']);
-      DB::table('categories')->insert(['name' => 'LaptopsUsa']);
-      DB::table('categories')->insert(['name' => 'Mobile']);
+      DB::table('categories')->insert(['name' => 'LaptopsChina', 'image' => '/img/shop01.png']);
+      DB::table('categories')->insert(['name' => 'Smartphones', 'image' => '/img/shop02.png' ]);
+      DB::table('categories')->insert(['name' => 'Cameras', 'image' => '/img/shop03.png' ]);
+      DB::table('categories')->insert(['name' => 'Accessories ', 'image' => '/img/shop01.png' ]);
+      DB::table('categories')->insert(['name' => 'LaptopsUsa', 'image' => '/img/shop02.png' ]);
+      DB::table('categories')->insert(['name' => 'Mobile', 'image' => '/img/shop03.png']);
     }
 }

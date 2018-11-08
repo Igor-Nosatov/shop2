@@ -21,8 +21,7 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product01.png',
-          'categories_id'=> 1,
-          'brands_id' => 1
+          'category_id' => 1
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -34,8 +33,7 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product02.png',
-          'categories_id'=> 2,
-          'brands_id' => 2
+          'category_id' => 1
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -47,8 +45,7 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product03.png',
-          'categories_id'=> 3,
-          'brands_id' => 3
+          'category_id' => 1
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -60,8 +57,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product04.png',
-          'categories_id'=> 4,
-          'brands_id' => 4
+          'category_id' => 1
+        
         ]);
         DB::table('products')->insert([
           'name' => 'Red X5',
@@ -73,8 +70,7 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product05.png',
-          'categories_id'=> 5,
-          'brands_id' => 5
+          'category_id' => 1
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -86,8 +82,7 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product06.png',
-          'categories_id'=> 6,
-          'brands_id' => 6
+          'category_id' => 1
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -99,22 +94,10 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product07.png',
-          'categories_id'=> 1,
-          'brands_id' => 1
+          'category_id' => 2
         ]);
-        DB::table('products')->insert([
-          'name' => 'Red X8',
-          'price' => 780,
-          'description' => 'Lorem ipsum dolor sit amet,
-           consectetur adipisicing elit,
-           sed do eiusmod tempor incididunt ut labore et
-           dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.',
-          'image' => '/img/product08.png',
-          'categories_id'=> 2,
-          'brands_id' => 2
-        ]);
+
+       
         DB::table('products')->insert([
           'name' => 'Red X8',
           'price' => 900,
@@ -125,8 +108,141 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product09.png',
-          'categories_id'=> 3,
-          'brands_id' => 3
+          'category_id' => 2
+        ]);
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 380,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product07.png',
+          'category_id' => 2
+        ]);
+
+       
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 900,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product09.png',
+          'category_id' => 2
+        ]);
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 380,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product07.png',
+          'category_id' => 2
+        ]);
+
+       
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 900,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product09.png',
+          'category_id' => 2
+        ]);
+
+
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 380,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product07.png',
+          'category_id' => 3
+        ]);
+
+       
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 900,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product09.png',
+          'category_id' => 3
+        ]);
+
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 380,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product02.png',
+          'category_id' => 3
+        ]);
+
+       
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 900,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product03.png',
+          'category_id' => 3
+        ]);
+
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 380,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product01.png',
+          'category_id' => 3
+        ]);
+
+       
+        DB::table('products')->insert([
+          'name' => 'Red X8',
+          'price' => 900,
+          'description' => 'Lorem ipsum dolor sit amet,
+           consectetur adipisicing elit,
+           sed do eiusmod tempor incididunt ut labore et
+           dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.',
+          'image' => '/img/product04.png',
+          'category_id' => 3
         ]);
     }
 }

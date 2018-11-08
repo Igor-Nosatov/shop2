@@ -20,10 +20,8 @@
 				</div>		
 			</div>			
 		</div>
-
-     @include('pages.partial.new_product')
+     @include('pages.home.partial.new_product')
      
-
      <div id="hot-deal" class="section">
 			<!-- container -->
 			<div class="container">
@@ -69,8 +67,8 @@
 		</div>
 
 		
-     @include('pages.partial.top_selling')
+     @include('pages.home.partial.top_selling')
 
-     @include('pages.partial.footer_top_selling')
+     @include('pages.home.partial.footer_top_selling')
 
 @endsection
