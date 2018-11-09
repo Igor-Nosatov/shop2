@@ -27,20 +27,22 @@ class StoreController extends Controller
     	$categories = Category::with('product')->orderBy('name','desc')->get();
         $brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
         $top_selling = Product::where('price','>','500')->take(3)->with('category')->get();
+
     	 $query = Product::orderBy('created_at','desc');
-    if($request->keyword){
+              if($request->keyword){
         // This will only execute if you received any keyword
-        $query = $query->where('name','like','%'.$keyword.'%');
-    }
-    if($request->min_price && $request->max_price){
+        $search_product = $query->where('name','like','%'.$keyword.'%');
+                                    }
+         if($request->min_price && $request->max_price){
         // This will only execute if you received any price
         // Make you you validated the min and max price properly
         $query = $query->where('price','>=',$request->min_price);
         $query = $query->where('price','<=',$request->max_price);
-    }
+         }
+    $products = $query->paginate(5);
     $products = $query->paginate(5);
     return view("pages.store.price_filter", compact('categories',
-            'brand_categories','top_selling','products'));
+            'brand_categories','top_selling','products','search_product'));
     }
 
 }
