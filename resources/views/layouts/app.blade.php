@@ -16,7 +16,6 @@
 <body>
 
 		@include ('common.header')
-		@include ('common.nav')
 		@yield('content')
 		@include ('common.newsletter')
 	  @include ('common.footer')

@@ -5,9 +5,9 @@
     <div id="responsive-nav">
       <!-- NAV -->
       <ul class="main-nav nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Hot Deals</a></li>
-        <li><a href="#">Categories</a></li>
+        <li class="active"><a href="{{ route('home') }}">Home</a></li>
+        <li><a href="{{ route('home') }}">Hot Deals</a></li>
+        <li><a href="{{ route('store') }}">Categories</a></li>
         @foreach ($nav as $category)
          <li><a href="#">{{ $category->name }}</a></li>
         @endforeach

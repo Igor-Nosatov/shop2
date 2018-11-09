@@ -21,7 +21,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product01.png',
-          'category_id' => 1
+          'category_id' => 1,
+          'brand_id' => 6
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -33,7 +34,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product02.png',
-          'category_id' => 1
+          'category_id' => 1,
+          'brand_id' => 5
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -45,7 +47,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product03.png',
-          'category_id' => 1
+          'category_id' => 1,
+          'brand_id' => 3
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -57,7 +60,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product04.png',
-          'category_id' => 1
+          'category_id' => 1,
+          'brand_id' => 3
         
         ]);
         DB::table('products')->insert([
@@ -70,7 +74,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product05.png',
-          'category_id' => 1
+          'category_id' => 1,
+          'brand_id' => 2
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -82,7 +87,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product06.png',
-          'category_id' => 1
+          'category_id' => 1,
+          'brand_id' => 1
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -94,7 +100,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product07.png',
-          'category_id' => 2
+          'category_id' => 2,
+          'brand_id' => 6
         ]);
 
        
@@ -108,7 +115,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product09.png',
-          'category_id' => 2
+          'category_id' => 2,
+          'brand_id' => 5
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -120,7 +128,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product07.png',
-          'category_id' => 2
+          'category_id' => 2,
+          'brand_id' => 4
         ]);
 
        
@@ -134,7 +143,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product09.png',
-          'category_id' => 2
+          'category_id' => 2,
+          'brand_id' => 3
         ]);
         DB::table('products')->insert([
           'name' => 'Red X8',
@@ -146,7 +156,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product07.png',
-          'category_id' => 2
+          'category_id' => 2,
+          'brand_id' => 2
         ]);
 
        
@@ -160,7 +171,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product09.png',
-          'category_id' => 2
+          'category_id' => 2,
+          'brand_id' => 1
         ]);
 
 
@@ -174,7 +186,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product07.png',
-          'category_id' => 3
+          'category_id' => 3,
+          'brand_id' => 3
         ]);
 
        
@@ -188,7 +201,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product09.png',
-          'category_id' => 3
+          'category_id' => 3,
+          'brand_id' => 5
         ]);
 
         DB::table('products')->insert([
@@ -201,7 +215,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product02.png',
-          'category_id' => 3
+          'category_id' => 3,
+          'brand_id' => 1
         ]);
 
        
@@ -215,7 +230,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product03.png',
-          'category_id' => 3
+          'category_id' => 3,
+          'brand_id' => 6
         ]);
 
         DB::table('products')->insert([
@@ -228,7 +244,8 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product01.png',
-          'category_id' => 3
+          'category_id' => 3,
+          'brand_id' => 2
         ]);
 
        
@@ -242,7 +259,9 @@ class ProductTableSeeder extends Seeder
           quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.',
           'image' => '/img/product04.png',
-          'category_id' => 3
+          'category_id' => 3,
+          'brand_id' => 1
+
         ]);
     }
 }
