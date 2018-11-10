@@ -16,7 +16,8 @@
           </div>
           <div class="aside">
             <h3 class="aside-title">Price</h3>
-        <form action="{{ route('store.filter')}}" method="GET">
+        <form action="{{ route('store.filter')}}" method="POST">
+          @csrf
             <div class="price-filter">
               <div id="price-slider"></div>
               <div class="input-number price-min">
@@ -31,7 +32,7 @@
                 <span class="qty-down">-</span>
               </div>
             </div>
-            <input type="submit" value="Filter">
+            <input class="primary-submit" type="submit" value="Filter">
        </form>
           </div>
           <div class="aside">

@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
-{
+{ 
+  use Searchable;
+
   protected $table = 'products';
 
   protected $fillable = ['name','description', 'image', 'price'];
@@ -18,5 +21,16 @@ class Product extends Model
   {
     return $this->belongsTo('App\Brand', 'brand_id');
   }
+ 
+
+ public function toSearchableArray()
+    {
+        $genres = array_map(function($item) {
+            return trim($item);
+        }, explode(',', $this->category->genres));
+
+        return array_merge( $this->toArray(), ['category' => $this->category->name, 'photo' => $this->category->photo, 'genres' => $genres]);
+    }
+
 
 }

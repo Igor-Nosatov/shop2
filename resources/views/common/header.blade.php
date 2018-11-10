@@ -34,12 +34,15 @@
         <!-- SEARCH BAR -->
         <div class="col-md-6">
           <div class="header-search">
-            <form action="{{ route('store.filter') }}" method="GET">         
-              <input class="input" placeholder="Search here" type="text" name="keyword" >  
-              <input class="search-btn" type="submit" value="Filter">
+            <form method="GET" action="{{ route('store.search') }}" role="search">      @csrf   
+              <input class="input" type="text" name="search"  placeholder="Search" >  
+              <input class="search-btn" type="submit" value="Search">
             </form>
           </div>
         </div>
+
+
+        
         <!-- /SEARCH BAR -->
 
         <!-- ACCOUNT -->

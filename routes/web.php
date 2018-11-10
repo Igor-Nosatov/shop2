@@ -14,5 +14,6 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/store', 'StoreController@index')->name('store');
-Route::get('/store/store_filter', 'StoreController@show')->name('store.filter');
+Route::post('/store/store_filter', 'StoreController@show')->name('store.filter');
+Route::get('/store/store_search','StoreController@update')->name('store.search');
 
