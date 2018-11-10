@@ -18,7 +18,6 @@
 
 		@include ('common.header')
 		@yield('content')
-		@include ('common.newsletter')
 	     @include ('common.footer')
 
 		<script src="{{ asset('js/jquery.min.js')}}"></script>

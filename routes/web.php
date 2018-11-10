@@ -11,7 +11,10 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::post('/', 'SubscribeController@store')->name('subscribe');
 
 Route::get('/store', 'StoreController@index')->name('store');
 Route::post('/store/store_filter', 'StoreController@show')->name('store.filter');
