@@ -7,7 +7,7 @@
             <div class="checkbox-filter">
              @foreach($categories as $category)
               <div class="input-checkbox">
-                <a href="">{{$category->name}}
+                <a href="{{route('category', $category->id)}}">{{$category->name}}
                 <small>({{$category->product->count()}})</small>
                 </a>
               </div>
@@ -40,7 +40,7 @@
             <div>
              @foreach($brand_categories as $brand)
               <div class="input-checkbox">
-                <a href="">
+                <a href="{{route('brand', $brand->id)}}">
                   {{ $brand->name }} 
                   <small>({{ $brand->product->count()}}) </small></a>
               </div>

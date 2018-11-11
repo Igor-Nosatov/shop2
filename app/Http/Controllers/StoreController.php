@@ -23,7 +23,7 @@ public function index()
 
    
 
-public function show(Request $request)
+  public function show(Request $request)
    {    
       $categories = Category::with('product')->orderBy('name','desc')->get();
       $brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
@@ -42,20 +42,44 @@ public function show(Request $request)
               'brand_categories','top_selling','products']));
     }
 
-public function update(Request $request)
+   public function update(Request $request)
     {
-    $categories = Category::with('product')->orderBy('name','desc')->get();
-    $brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
-    $top_selling = Product::where('price', '>','500')->take(3)->with('category')->get();
+       $categories = Category::with('product')->orderBy('name','desc')->get();
+       $brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
+       $top_selling = Product::where('price', '>','500')->take(3)->with('category')->get();
 
-     if($request->has('search')){
-      
-      $products = Product::search($request->input('search'))->get();
-   }
+           if($request->has('search')){
+           $products = Product::search($request->input('search'))->get();
+           }
 
-    return view("pages.store.search", compact(['categories',
+       return view("pages.store.search", compact(['categories',
               'brand_categories','top_selling','products']));
-
     }
 
+    public function category($id)
+    {
+       $categories = Category::with('product')->orderBy('name','desc')->get();
+       $brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
+       $top_selling = Product::where('price', '>','500')->take(3)->with('category')->get();
+
+       $products = Product::query()->where('category_id', $id)->paginate(6);
+
+       return view("pages.store.store", compact(['categories',
+              'brand_categories','top_selling','products']));
+    }
+
+    public function brand($id)
+    {
+       $categories = Category::with('product')->orderBy('name','desc')->get();
+       $brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
+       $top_selling = Product::where('price', '>','500')->take(3)->with('category')->get();
+
+       $products = Product::query()->where('brand_id', $id)->paginate(6);
+
+       return view("pages.store.store", compact(['categories',
+              'brand_categories','top_selling','products']));
+    }
+
+
+    
 }

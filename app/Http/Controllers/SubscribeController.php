@@ -17,8 +17,6 @@ class SubscribeController extends Controller
          $this->mailchimp = $mailchimp;
      }
    
-
-
      public function store(Request $request)
    {
         if ( ! Newsletter::isSubscribed($request->email) ) 
