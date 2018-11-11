@@ -22,3 +22,5 @@ Route::get('/store/store_search','StoreController@update')->name('store.search')
 
 Route::get('/category/{category}', 'StoreController@category')->name('category');
 Route::get('/brand/{brand}', 'StoreController@brand')->name('brand');
+
+Route::get('/product/{product}', 'ProductController@show')->name('product.show');
