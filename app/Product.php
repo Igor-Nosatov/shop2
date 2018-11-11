@@ -23,14 +23,13 @@ class Product extends Model
   }
  
 
- public function toSearchableArray()
-    {
-        $genres = array_map(function($item) {
-            return trim($item);
-        }, explode(',', $this->category->genres));
-
-        return array_merge( $this->toArray(), ['category' => $this->category->name, 'photo' => $this->category->photo, 'genres' => $genres]);
-    }
+ //public function toSearchableArray()
+//        $genres = array_map(function($item) {
+ //           return trim($item);
+//       }, explode(',', $this->category->genres));
+//
+   //     return array_merge( $this->toArray(), ['category' => $this->category->name, 'photo' => $this->category->photo, 'genres' => $genres]);
+   // }
 
 
 }
