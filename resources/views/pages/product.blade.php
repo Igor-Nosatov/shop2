@@ -1,76 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- SECTION -->
   <div class="section">
-    <!-- container -->
     <div class="container">
-      <!-- row -->
       <div class="row">
-        <!-- Product main img -->
         <div class="col-md-5 col-md-push-2">
           <div id="product-main-img">
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
-
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
-
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
-
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
           </div>
         </div>
-        <!-- /Product main img -->
-
-        <!-- Product thumb imgs -->
         <div class="col-md-2  col-md-pull-5">
           <div id="product-imgs">
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
-
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
-
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
-
             <div class="product-preview">
               <img src="{{asset($products->image)}}" alt="">
             </div>
           </div>
         </div>
-        <!-- /Product thumb imgs -->
-
-        <!-- Product details -->
         <div class="col-md-5">
           <div class="product-details">
             <h2 class="product-name">{{ $products->name }}</h2>
             <div>
               <div class="product-rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
+                 @for($i = 1; $i <= 5; $i++)
+                      @if($i <= $avg_stars)
+                      <i class="fa fa-star"></i>
+                      @else
+                      <i class="fa fa-star-o empty"></i>
+                      @endif
+                 @endfor
               </div>
-              <a class="review-link" href="#">10 Review(s) | Add your review</a>
+              <a class="review-link" href="#add_review">{{$reviews->count()}} Review(s) | Add your review</a>
             </div>
             <div>
               <h3 class="product-price">${{ $products->price }} <del class="product-old-price">$990.00</del></h3>
               <span class="product-available">In Stock</span>
             </div>
             <p>{{ $products->description }}</p>
-
             <div class="product-options">
               <label>
                 Size
@@ -126,9 +111,9 @@
           <div id="product-tab">
             <!-- product tab nav -->
             <ul class="tab-nav">
-              <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+              <li class="first active"><a data-toggle="tab" href="#tab1">Description</a></li>
               <li><a data-toggle="tab" href="#tab2">Details</a></li>
-              <li><a data-toggle="tab" href="#tab3">Reviews (3)</a></li>
+              <li class="second"><a data-toggle="tab" id="add_review"  href="#tab3">Reviews ({{$reviews->count()}})</a></li>
             </ul>
             <!-- /product tab nav -->
 
@@ -155,20 +140,23 @@
               <!-- /tab2  -->
 
               <!-- tab3  -->
-              <div id="tab3" class="tab-pane fade in">
+              <div  id="tab3" class="tab-pane fade in ">
                 <div class="row">
                   <!-- Rating -->
                   <div class="col-md-3">
                     <div id="rating">
                       <div class="rating-avg">
-                        <span>4.5</span>
-                        <div class="rating-stars">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-o"></i>
-                        </div>
+                        <span>{{ number_format($avg_stars, 0) }}</span>
+                        
+                    <div class="rating-stars">
+                         @for($i = 1; $i <= 5; $i++)
+                                  @if($i <= $avg_stars)
+                                     <i class="fa fa-star"></i>
+                                  @else
+                                     <i class="fa fa-star-o empty"></i>
+                                  @endif
+                            @endfor
+                    </div>
                       </div>
                       <ul class="rating">
                         <li>
@@ -274,12 +262,6 @@
                   </div>
                   <!-- /Reviews -->
 
-
-
-
-
-
-it
 
                   <!-- Review Form -->
                   <div class="col-md-3">

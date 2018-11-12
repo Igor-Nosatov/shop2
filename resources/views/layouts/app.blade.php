@@ -26,6 +26,15 @@
 		<script src="{{ asset('js/nouislider.min.js')}}"></script>
 		<script src="{{ asset('js/jquery.zoom.min.js')}}"></script>
 		<script src="{{ asset('js/main.js')}}"></script>
-		
+		<script>
+
+          $( ".review-link" ).click(function() {
+          	  $( "ul>li>.first" ).removeClass( "active" );
+          	  $( "ul>li>.second" ).addClass( "active" );
+             $( "#tab1" ).removeClass( "active" );
+             $( "#tab3" ).addClass( "active" ); 
+         });
+
+       </script>	
 </body>
 </html>

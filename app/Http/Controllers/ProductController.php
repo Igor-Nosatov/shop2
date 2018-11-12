@@ -17,7 +17,8 @@ class ProductController extends Controller
     {
         $products = Product::query()->findOrFail($id);
         $reviews = ProductReviews::query()->latest()->with('product')->paginate(3);
-        return view('pages.product',compact(['products','reviews']));
+        $avg_stars = ProductReviews::query()->avg('rating');
+        return view('pages.product',compact(['products','reviews','avg_stars']));
     }
 
 }
