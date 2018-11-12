@@ -11,7 +11,7 @@ class ProductReviews extends Model
     protected $fillable = ['products_id',
      'user', 'email', 'review', 'rating'];
 
-    public function products()
+    public function product()
     {
       return $this->belongsTo('App\Product');
     }

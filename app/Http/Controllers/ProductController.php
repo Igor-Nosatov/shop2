@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Product;
-use App\ProductReview;
-use App\Category;
-use App\Brand;
+use App\Size;
+use App\Color;
+use App\ProductReviews;
 
 use Session;
 
@@ -16,7 +16,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $products = Product::query()->findOrFail($id);
-        return view('pages.product',compact(['products']));
+        $reviews = ProductReviews::query()->latest()->with('product')->paginate(3);
+        return view('pages.product',compact(['products','reviews']));
     }
 
 }
