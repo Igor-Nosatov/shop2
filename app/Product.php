@@ -21,15 +21,9 @@ class Product extends Model
   {
     return $this->belongsTo('App\Brand', 'brand_id');
   }
- 
-
- //public function toSearchableArray()
-//        $genres = array_map(function($item) {
- //           return trim($item);
-//       }, explode(',', $this->category->genres));
-//
-   //     return array_merge( $this->toArray(), ['category' => $this->category->name, 'photo' => $this->category->photo, 'genres' => $genres]);
-   // }
-
+  public function review() 
+  {
+    return $this->hasMany('App\ProductReviews', 'review_id');
+  }
 
 }
