@@ -26,4 +26,14 @@ class Product extends Model
     return $this->hasMany('App\ProductReviews', 'review_id');
   }
 
+  public function color() 
+  {
+    return $this->hasMany('App\Color', 'color_id');
+  }
+
+  public function size() 
+  {
+    return $this->hasMany('App\Size', 'size_id');
+  }
+
 }

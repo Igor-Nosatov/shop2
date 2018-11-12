@@ -61,10 +61,11 @@
                             @endfor
                             
                           </div>
+
                           <div class="rating-progress">
-                            <div style="width: {{($star5->count()*100)/($count_star) }}%;"></div>
+                            <div style="width: {{($star5)/($count_star)*100 }}%;"></div>
                           </div>
-                          <span class="sum">{{$star5->count()}}</span>
+                          <span class="sum">{{$star5}}</span>
                         </li>
                         <li>
                           <div class="rating-stars">
@@ -77,9 +78,9 @@
                             @endfor
                           </div>
                           <div class="rating-progress">
-                            <div style="width: {{($star4->count()*100)/($count_star) }}%;"></div>
+                            <div style="width: {{($star4)/($count_star)*100 }}%;"></div>
                           </div>
-                          <span class="sum">{{$star4->count()}}</span>
+                          <span class="sum">{{$star4}}</span>
                         </li>
                         <li>
                           <div class="rating-stars">
@@ -92,9 +93,9 @@
                             @endfor
                           </div>
                           <div class="rating-progress">
-                            <div style="width: {{($star3->count()*100)/($count_star) }}%;"></div>
+                            <div style="width: {{($star3)/($count_star)*100 }}%;"></div>
                           </div>
-                          <span class="sum">{{$star3->count()}}</span>
+                          <span class="sum">{{$star3}}</span>
                         </li>
                         <li>
                           <div class="rating-stars">
@@ -107,9 +108,9 @@
                             @endfor
                           </div>
                           <div class="rating-progress">
-                            <div style="width: {{($star2->count()*1000)/($count_star) }}%;"></div>
+                            <div style="width: {{($star2)/($count_star)*100 }}%;"></div>
                           </div>
-                          <span class="sum">{{$star2->count()}}</span>
+                          <span class="sum">{{$star2}}</span>
                         </li>
                         <li>
                           <div class="rating-stars">
@@ -122,9 +123,9 @@
                             @endfor
                           </div>
                           <div class="rating-progress">
-                           <div style="width: {{($star1->count()*1000)/($count_star) }}%;"></div>
+                           <div style="width: {{($star1)/($count_star)*100 }}%;"></div>
                           </div>
-                          <span class="sum">{{$star1->count()}}</span>
+                          <span class="sum">{{$star1}}</span>
                         </li>
                       </ul>
                     </div>
