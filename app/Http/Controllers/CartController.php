@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App; 
+use App;
 use App\Product;
 use App\Cart;
 use Session;
@@ -18,14 +18,14 @@ class CartController extends Controller
         $total = 0;
         $counter = 0;
 
-        
-        
+
+
         if($products != null){
             foreach ($products as $product)
                 $counter += $product->quantityCart;
             $total += CartController::totalCost($products);
         }
-        
+
         if($counter >= 10)
             $total = $total * 0.9;
 
@@ -36,7 +36,7 @@ class CartController extends Controller
      public function stored(Request $request) {
 
         $id = $request['product_id'];
-        
+
         if($request->session()->has('pages.cart')){
             foreach($request->session()->get('pages.cart') as $product) {
                 if($id == $product->id) {
@@ -47,11 +47,17 @@ class CartController extends Controller
         }
 
         $cartProduct = CartProduct::fromProduct(Product::get()->where('id', $id)->first());
-        
+
         $cartProduct->quantityCart++;
-        
+
         $request->session()->push('pages', $cartDarkBeer);
 
         return redirect('/'.App::getLocale().'/cart');
+    }
+
+
+    public function show()
+    {
+      return view('pages.cart');
     }
 }
