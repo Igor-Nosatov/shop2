@@ -87,7 +87,10 @@
               <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>
 
-            
+            <ul class="product-btns">
+              <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+              <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
+            </ul>
 
             <ul class="product-links">
               <li>Category:</li>

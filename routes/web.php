@@ -15,3 +15,6 @@ Route::get('/brand/{brand}', 'StoreController@brand')->name('brand');
 Route::get('/product/{product}', 'ProductController@show')->name('product.show');
 Route::resource('review','ReviewController');
 
+
+
+
