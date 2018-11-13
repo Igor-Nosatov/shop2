@@ -20,4 +20,7 @@ Route::post('/cart/product', 'CartController@store')->name('cart.store');
 Route::post('/cart/product/{id}/edit', 'CartController@edit')->name('cart.edit');
 Route::delete('/cart/product/{id}', 'CartController@destroy')->name('cart.destroy');
 
-Route::get('/checkout', 'CheckoutController@index');
+Route::post('/checkout', 'CheckoutController@store')->name('check.store');
+Route::get('/checkout/create', 'CheckoutController@create')->name('check.create');
+Route::get('/checkout/{id}', 'CheckoutController@show')->('check.show');
+Route::put('/checkout/{id}','CheckoutController@update')->name('check.update');
