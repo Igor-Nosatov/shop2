@@ -16,12 +16,10 @@ class ProductController extends Controller
 {
     public function show( $id)
     {
-        $products    = Product::with('category')->findOrFail($id);
-        $categoryIds = $products->category->pluck('id')->toArray();
+        $products    = Product::with(['color', 'size'])->findOrFail($id);
+        $productsId  = Product::with('category')->findOrFail($id);
+        $categoryIds = $productsId->category->pluck('id')->toArray();
         $reviews     = ProductReviews::query()->latest()->with('product')->paginate(3);
-        
-        
-
         $count_star = ProductReviews::query()->count();
         $avg_stars  = ProductReviews::query()->avg('rating');
         $star5      = ProductReviews::query()->where('rating','=','5')->count();
@@ -31,11 +29,11 @@ class ProductController extends Controller
         $star1      = ProductReviews::query()->where('rating','=','1')->count();
 
         $similarProduct = Product::whereHas('category', function ($query) use ($categoryIds) {
-          return $query->whereIn('id', $categoryIds);})->where('id', $products->id)
+          return $query->whereIn('id', $categoryIds);})->where('id', $productsId->id)
           ->limit(10)->get();
 
         return view('pages.product',compact
-        	(['products','reviews','avg_stars',
+        	(['products','productsId','reviews','avg_stars',
         		'star5','star4','star3',
         		'star2','star1','count_star','similarProduct']));
     }

@@ -11,7 +11,7 @@ class Product extends Model
 
   protected $table = 'products';
 
-  protected $fillable = ['name','description', 'image', 'price','color_id', 'size_id'];
+  protected $fillable = ['name','description', 'image', 'price'];
 
   public function category() 
   {
@@ -28,12 +28,12 @@ class Product extends Model
 
   public function color()
   {
-    return $this->belongsToMany(Color::class)->withTimestamps();
+    return $this->belongsToMany('App\Color');
   }
 
   public function size()
   {
-    return $this->belongsToMany(Size::class)->withTimestamps();
+    return $this->belongsToMany('App\Size');
   }
     
 }
