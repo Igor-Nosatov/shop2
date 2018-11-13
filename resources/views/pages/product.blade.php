@@ -49,7 +49,7 @@
                       @endif
                  @endfor
               </div>
-              <a class="review-link" href="#add_review">{{$reviews->count()}} Review(s) | Add your review</a>
+              <a class="review-link" href="#add_review">{{$count_star}} Review(s) | Add your review</a>
             </div>
             <div>
               <h3 class="product-price">${{ $products->price }} <del class="product-old-price">$990.00</del></h3>

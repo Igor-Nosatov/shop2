@@ -15,7 +15,7 @@ class HomeController extends Controller
 
      $categories = Category::get()->take(3);
 
-    $products = Product::latest()->first()->get();
+    $products = Product::query()->get();
          
     $product_category1 = Product::with('category')->get()->where('category_id','=','1');
     $product_category2 = Product::with('category')->get()->where('category_id','=','2');

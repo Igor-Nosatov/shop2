@@ -4,7 +4,7 @@
             <ul class="tab-nav">
               <li class="first active"><a data-toggle="tab" href="#tab1">Description</a></li>
               <li><a data-toggle="tab" href="#tab2">Details</a></li>
-              <li class="second"><a data-toggle="tab" id="add_review"  href="#tab3">Reviews ({{$reviews->count()}})</a></li>
+              <li class="second"><a data-toggle="tab" id="add_review"  href="#tab3">Reviews ({{$count_star}})</a></li>
             </ul>
             <!-- /product tab nav -->
 
@@ -125,7 +125,7 @@
                           <div class="rating-progress">
                            <div style="width: {{($star1)/($count_star)*100 }}%;"></div>
                           </div>
-                          <span class="sum">{{$star1}}</span>
+                          <span class="sum">{{($star1)}}</span>
                         </li>
                       </ul>
                     </div>
@@ -178,11 +178,11 @@
                           <div class="input-rating">
                             <span>Your Rating: </span>
                             <div class="stars">
-                              <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
-                              <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-                              <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-                              <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
                               <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+                              <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
+                              <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
+                              <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
+                              <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
                             </div>
                           </div>
                           <button  type="submit" class="primary-btn">Submit</button>

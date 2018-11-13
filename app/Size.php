@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Size extends Model
 {
-  protected $table = 'sizes';
-  
-  protected $fillable = ['name'];
+ 
+  protected $fillable = ['name','product_id'];
 
-  public function products()
+  public function product()
   {
     return $this->belongsToMany('App\Product');
+  
   }
+
 }
