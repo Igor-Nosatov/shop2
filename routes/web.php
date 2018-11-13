@@ -15,5 +15,9 @@ Route::get('/brand/{brand}', 'StoreController@brand')->name('brand');
 Route::get('/product/{product}', 'ProductController@show')->name('product.show');
 Route::resource('review','ReviewController');
 
-Route::get('/cart', 'CartController@show');
+Route::get('/cart', 'CartController@index')->name('cart');
+Route::post('/cart/product', 'CartController@store')->name('cart.store');
+Route::post('/cart/product/{id}/edit', 'CartController@edit')->name('cart.edit');
+Route::delete('/cart/product/{id}', 'CartController@destroy')->name('cart.destroy');
+
 Route::get('/checkout', 'CheckoutController@index');

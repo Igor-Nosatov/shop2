@@ -33,7 +33,7 @@ class CartController extends Controller
     }
 
 
-     public function stored(Request $request) {
+     public function store(Request $request) {
 
         $id = $request['product_id'];
 
@@ -47,17 +47,55 @@ class CartController extends Controller
         }
 
         $cartProduct = CartProduct::fromProduct(Product::get()->where('id', $id)->first());
-
         $cartProduct->quantityCart++;
-
-        $request->session()->push('pages', $cartDarkBeer);
-
-        return redirect('/'.App::getLocale().'/cart');
+        $request->session()->push('pages.cart', $cartProduct);
+        return redirect('/cart');
     }
 
 
-    public function show()
-    {
-      return view('pages.cart');
+    public function edit(Request $request, $id) {
+    $products = [];
+    $rType = $request['type'];
+    $productUpdate = null;
+
+    foreach($request->session()->get('pages.cart') as $product) {
+        if($id != $product->id)
+            $products []= $product;
+
+        if($id == $product->id) {
+            $productUpdate = clone $product;
+
+            if($rType == 'plus')
+                $productUpdate->quantityCart = $productUpdate->quantityCart + 1;
+            else
+                $productUpdate->quantityCart = $productUpdate->quantityCart - 1;
+
+            if($productUpdate->quantityCart < 1)
+                return $this->destroyproduct($request, $productUpdate->id);
+
+            $products []= $productUpdate;
+        }
+    }
+
+
+    $request->session()->pull('pages.cart');
+    $request->session()->put('pages.cart', $products);
+
+    return redirect('/cart');
+}
+
+public function destroyproduct(Request $request, $id) {
+
+        $products = [];
+
+        foreach($request->session()->get('pages.cart') as $product) {
+            if($id != $product->id)
+                $products []= $product;
+        }
+
+        $request->session()->pull('pages.cart');
+        $request->session()->put('pages.cart', $products);
+
+        return redirect('/cart');
     }
 }
