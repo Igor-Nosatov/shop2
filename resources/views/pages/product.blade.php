@@ -56,12 +56,23 @@
               <span class="product-available">In Stock</span>
             </div>
             <p>{{ $products->description }}</p>
-            <div class="product-options">
+
+
+
+
+
+
+
+      <form action="{{ route('cart.store') }}" method="POST">
+        @csrf
+      <input type="hidden" id="id" name="products_id" value= "{{$products->id}}">
+
+      <div class="product-options">
               <label>
                 Size
                 <select class="input-select">
                   @foreach ($products->size as $size)
-                    <option value="{{ $size->id }}">
+                    <option name="size" value="{{ $size->id }}">
                      {{ $size->name }}
                    </option>
                     @endforeach
@@ -71,33 +82,35 @@
                 Color
                 <select class="input-select">
                    @foreach ($products->color as $color)
-                  <option value="{{ $color->id }}">{{$color->name}}</option>
+                  <option name="color" value="{{ $color->id }}">{{$color->name}}</option>
                    @endforeach
                 </select>
               </label>
             </div>
-
-            <div class="add-to-cart">
+          <div class="add-to-cart">
               <div class="qty-label">
-                Qty
-                
-                  <input type="number" min="1" max="10" name="number">
-                
+                Qty     
+                  <input type="number" min="1" max="10" name="number">     
               </div>
-              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+              <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>
+        </form>
 
+
+
+
+
+
+     </div>
             <ul class="product-btns">
               <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
               <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
             </ul>
-
             <ul class="product-links">
               <li>Category:</li>
               <li><a href="#">Headphones</a></li>
               <li><a href="#">Accessories</a></li>
             </ul>
-
             <ul class="product-links">
               <li>Share:</li>
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -105,7 +118,6 @@
               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
               <li><a href="#"><i class="fa fa-envelope"></i></a></li>
             </ul>
-
           </div>
         </div>
         @include('pages.rating.rating')

@@ -3,99 +3,103 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App;
+
 use App\Product;
+use App\Category;
+use App\Color;
+use App\Size;
 use App\Cart;
+use Auth;
 use Session;
 
+class CartController extends Controller {
 
+    public function __construct() {}
 
-class CartController extends Controller
-{
-     public function index(){
-        $products = session()->get('pages.cart');
-
-        $total = 0;
-        $counter = 0;
-
-
-
-        if($products != null){
-            foreach ($products as $product)
-                $counter += $product->quantityCart;
-            $total += CartController::totalCost($products);
-        }
-
-        if($counter >= 10)
-            $total = $total * 0.9;
-
-        return view('pages.cart', compact(['products','total']));
+    public function index(){
+        $products = session()->get('cart.products');
+        return view('pages.cart', [ 'categories' => Category::get(), 'products' => $products, 'totalCost' => $products!=null?CartController::total_cost($products):0 ]);
     }
 
+    public function store(Request $request) {
 
-     public function store(Request $request) {
-
-        $id = $request['product_id'];
-
-        if($request->session()->has('pages.cart')){
-            foreach($request->session()->get('pages.cart') as $product) {
-                if($id == $product->id) {
+        $products_id = $request['products_id'];
+         $products_id = $request['size'];
+          $products_id = $request['color'];
+           $products_id = $request['qty'];
+        
+        if($request->session()->has('cart.products')){
+            foreach($request->session()->get('cart.products') as $product) {
+                if($products_id == $product->id) {
                     $request['type'] = 'plus';
-                    return $this->editProduct($request,  $product->id);
+                    return $this->edit($request, $product->id);
                 }
             }
         }
 
-        $cartProduct = CartProduct::fromProduct(Product::get()->where('id', $id)->first());
+        $product = Product::get()->where('id', '=', $products_id)->first();    
+        $cartProduct = Cart::fromProduct($product);
+        
         $cartProduct->quantityCart++;
-        $request->session()->push('pages.cart', $cartProduct);
-        return redirect('/cart');
+        
+        $request->session()->push('cart.products', $cartProduct);
+
+        return redirect()->route('cart.index');
     }
 
+    public function destroy(Request $request, $id) {
+
+        $products = array();
+        
+        foreach($request->session()->pull('cart.products', []) as $product) {
+            if($id != $product->id) {
+                $products []= $product;
+            }
+        }
+
+        session()->put('cart.products', $products);
+
+        return redirect()->route('cart.index');
+    }
 
     public function edit(Request $request, $id) {
-    $products = [];
-    $rType = $request['type'];
-    $productUpdate = null;
 
-    foreach($request->session()->get('pages.cart') as $product) {
-        if($id != $product->id)
-            $products []= $product;
+        $products = array();
+        $rType = $request['type'];
+        $productUpdate = null;
+        
+        
+        foreach($request->session()->get('cart.products') as $product) {
+            if($id != $product->id) 
+                $products []= $product;
 
-        if($id == $product->id) {
-            $productUpdate = clone $product;
-
-            if($rType == 'plus')
-                $productUpdate->quantityCart = $productUpdate->quantityCart + 1;
-            else
-                $productUpdate->quantityCart = $productUpdate->quantityCart - 1;
-
-            if($productUpdate->quantityCart < 1)
-                return $this->destroyproduct($request, $productUpdate->id);
-
-            $products []= $productUpdate;
+            if($id == $product->id) {
+                $productUpdate = clone $product;
+                $productUpdate->quantityCart = $rType=='plus'?$productUpdate->quantityCart+=1:$productUpdate->quantityCart-=1;
+                
+                if($productUpdate->quantityCart < 1)
+                    return $this->destroy($request, $productUpdate->id);
+                if($productUpdate->quantityCart >= $productUpdate->quantity + 1)
+                    return redirect()->route('cart.index')->with('danger-message', "Единиц данного товара в наличии - $productUpdate->quantity." );
+                    
+                $products []= $productUpdate;
+            }
         }
+        
+
+        session()->pull('cart.products');
+        session()->put('cart.products', $products);
+    
+
+        return redirect()->route('cart.index');
     }
 
+    public static function total_cost($products){
+        $sum = 0; 
 
-    $request->session()->pull('pages.cart');
-    $request->session()->put('pages.cart', $products);
-
-    return redirect('/cart');
-}
-
-public function destroyproduct(Request $request, $id) {
-
-        $products = [];
-
-        foreach($request->session()->get('pages.cart') as $product) {
-            if($id != $product->id)
-                $products []= $product;
-        }
-
-        $request->session()->pull('pages.cart');
-        $request->session()->put('pages.cart', $products);
-
-        return redirect('/cart');
+        foreach ($products as $product)
+            $sum += $product->price * $product->quantityCart;
+        
+        return $sum; 
     }
 }

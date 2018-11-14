@@ -9,8 +9,8 @@ use App\Size;
 use App\Color;
 use App\Category;
 use App\ProductReviews;
-
 use Session;
+
 
 class ProductController extends Controller
 {
@@ -37,5 +37,6 @@ class ProductController extends Controller
         		'star5','star4','star3',
         		'star2','star1','count_star','similarProduct']));
     }
+
 
 }

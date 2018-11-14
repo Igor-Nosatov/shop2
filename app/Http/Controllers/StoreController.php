@@ -8,6 +8,7 @@ use App\Category;
 use App\Brand;
 use App\Color;
 use App\Size;
+use Session;
 
 class StoreController extends Controller
 {
