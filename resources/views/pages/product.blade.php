@@ -59,53 +59,78 @@
 
 
 
+         
 
 
 
 
-      <form action="{{ route('cart.store') }}" method="POST">
-        @csrf
-      <input type="hidden" id="id" name="products_id" value= "{{$products->id}}">
 
-      <div class="product-options">
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <form class="review-form" method="POST" action="{{ route('cart.store') }}">
+            @csrf
+            <input type="hidden" name="products_id" value="{{$products->id }}">
+            <input type="hidden" name="name" value="{{$products->name }}">
+            <input type="hidden" name="image" value="{{$products->image}}">
+            <input type="hidden" name="price" value="{{$products->price}}">
+            <div class="product-options">
               <label>
                 Size
-                <select class="input-select">
+                <select name="size" class="input-select">
                   @foreach ($products->size as $size)
-                    <option name="size" value="{{ $size->id }}">
+                    <option  value="{{ $size->name }}">
                      {{ $size->name }}
                    </option>
-                    @endforeach
+                  @endforeach
                 </select>
               </label>
               <label>
                 Color
-                <select class="input-select">
+                <select name="color" class="input-select">
                    @foreach ($products->color as $color)
-                  <option name="color" value="{{ $color->id }}">{{$color->name}}</option>
+                      <option  value="{{ $color->name }}">
+                        {{$color->name}}
+                      </option>
                    @endforeach
                 </select>
               </label>
             </div>
-          <div class="add-to-cart">
-              <div class="qty-label">
-                Qty     
-                  <input type="number" min="1" max="10" name="number">     
-              </div>
-              <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-            </div>
-        </form>
+            <input type="number" name="number" min="1" max="10" required>               
+            <button  type="submit" class="primary-btn">Submit</button>
+          </form>
 
 
 
 
 
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
      </div>
-            <ul class="product-btns">
-              <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-              <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-            </ul>
             <ul class="product-links">
               <li>Category:</li>
               <li><a href="#">Headphones</a></li>
@@ -147,10 +172,8 @@
               <h4 class="product-price">${{$pr->price }} <del class="product-old-price">$990.00</del></h4>
               <div class="product-rating">
               </div>
-              <div class="product-btns">
+              <div class=" product-btns">
                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
               </div>
             </div>
             <div class="add-to-cart">
@@ -158,7 +181,9 @@
             </div>
           </div>
         </div>
+
      @endforeach
+
       </div>
     </div>
   </div>

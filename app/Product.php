@@ -26,6 +26,11 @@ class Product extends Model
     return $this->hasMany('App\ProductReviews', 'review_id');
   }
 
+  public function cart() 
+  {
+    return $this->hasMany('App\Cart');
+  }
+
   public function color()
   {
     return $this->belongsToMany('App\Color');

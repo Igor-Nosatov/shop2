@@ -3,103 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Product;
-use App\Category;
-use App\Color;
-use App\Size;
 use App\Cart;
-use Auth;
-use Session;
 
-class CartController extends Controller {
+class CartController extends Controller
+{
+    public function store(Request $request) { 
 
-    public function __construct() {}
-
-    public function index(){
-        $products = session()->get('cart.products');
-        return view('pages.cart', [ 'categories' => Category::get(), 'products' => $products, 'totalCost' => $products!=null?CartController::total_cost($products):0 ]);
-    }
-
-    public function store(Request $request) {
+        $this->validate($request, [
+     
+            'products_id' =>'required',
+            'name' => 'required',
+            'image' => 'required',
+            'price' => 'required',
+            'size' => 'required',
+            'color' => 'required',
+            'number' => 'required'
+            
+        ]);
 
         $products_id = $request['products_id'];
-         $products_id = $request['size'];
-          $products_id = $request['color'];
-           $products_id = $request['qty'];
-        
-        if($request->session()->has('cart.products')){
-            foreach($request->session()->get('cart.products') as $product) {
-                if($products_id == $product->id) {
-                    $request['type'] = 'plus';
-                    return $this->edit($request, $product->id);
-                }
-            }
-        }
+        $name = $request['name'];
+        $image = $request['image'];
+        $price = $request['price'];
+        $size = $request['size'];
+        $color = $request['color'];
+        $number = $request['number'];
 
-        $product = Product::get()->where('id', '=', $products_id)->first();    
-        $cartProduct = Cart::fromProduct($product);
-        
-        $cartProduct->quantityCart++;
-        
-        $request->session()->push('cart.products', $cartProduct);
+        $cart_model = Cart::create(
+           [  'products_id' => $products_id, 
+           'name' => $name,'image' => $image,
+           'price' => $price, 'size' =>$size,
+           'color' =>$color, 'number' =>$number]
+        );
 
-        return redirect()->route('cart.index');
-    }
-
-    public function destroy(Request $request, $id) {
-
-        $products = array();
-        
-        foreach($request->session()->pull('cart.products', []) as $product) {
-            if($id != $product->id) {
-                $products []= $product;
-            }
-        }
-
-        session()->put('cart.products', $products);
-
-        return redirect()->route('cart.index');
-    }
-
-    public function edit(Request $request, $id) {
-
-        $products = array();
-        $rType = $request['type'];
-        $productUpdate = null;
-        
-        
-        foreach($request->session()->get('cart.products') as $product) {
-            if($id != $product->id) 
-                $products []= $product;
-
-            if($id == $product->id) {
-                $productUpdate = clone $product;
-                $productUpdate->quantityCart = $rType=='plus'?$productUpdate->quantityCart+=1:$productUpdate->quantityCart-=1;
-                
-                if($productUpdate->quantityCart < 1)
-                    return $this->destroy($request, $productUpdate->id);
-                if($productUpdate->quantityCart >= $productUpdate->quantity + 1)
-                    return redirect()->route('cart.index')->with('danger-message', "Единиц данного товара в наличии - $productUpdate->quantity." );
-                    
-                $products []= $productUpdate;
-            }
-        }
-        
-
-        session()->pull('cart.products');
-        session()->put('cart.products', $products);
-    
-
-        return redirect()->route('cart.index');
-    }
-
-    public static function total_cost($products){
-        $sum = 0; 
-
-        foreach ($products as $product)
-            $sum += $product->price * $product->quantityCart;
-        
-        return $sum; 
+        return redirect()->route('product.show', ['product' => $products_id])->with('success-message', 'You have make it');
     }
 }
