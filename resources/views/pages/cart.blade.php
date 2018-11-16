@@ -39,18 +39,13 @@
                                 <td>{{$product->color}}</td>
                                 <td>{{$product->number}}</td>
                                 <td>
-                                	<form action="" method="">
-                                		@csrf
-                                		<button>add</button>
-                                	</form>
-                                	<form action="" method="">
-                                		@csrf
-                                		<button>minus</button>
-                                	</form>
-                                	<form action="" method="">
-                                		@csrf
-                                		<button>delete</button>
-                                	</form>
+                                	<form action= "{{ route('cart.destroy', $product->id) }}" method= "post">
+                       
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <button type= "submit" class="btn btn-sm btn-danger"> Delete </button>
+                        
+                        </form>
                                 </td>
                              @endforeach
                              </tr>

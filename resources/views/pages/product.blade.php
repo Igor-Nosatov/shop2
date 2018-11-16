@@ -56,28 +56,6 @@
               <span class="product-available">In Stock</span>
             </div>
             <p>{{ $products->description }}</p>
-
-
-
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <form class="review-form" method="POST" action="{{ route('cart.store') }}">
             @csrf
             <input type="hidden" name="products_id" value="{{$products->id }}">
@@ -109,27 +87,6 @@
             <input type="number" name="number" min="1" max="10" required>               
             <button  type="submit" class="primary-btn">Submit</button>
           </form>
-
-
-
-
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
      </div>
             <ul class="product-links">
               <li>Category:</li>

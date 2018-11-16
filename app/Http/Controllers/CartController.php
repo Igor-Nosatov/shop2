@@ -8,6 +8,7 @@ use App\Cart;
 
 class CartController extends Controller
 {   
+
     public function index()
     { 
       $cart_product = Cart::get();
@@ -43,6 +44,18 @@ class CartController extends Controller
            'color' =>$color, 'number' =>$number]
         );
 
-        return redirect()->route('product.show', ['product' => $products_id])->with('success-message', 'You have make it');
+        return redirect()->back();
     }
+
+    
+
+
+
+        public function destroy($id)
+    {
+        $cart_product = Cart::find($id);
+        $cart_product->delete();
+        return redirect()->back();
+    }
+    
 }
