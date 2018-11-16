@@ -26,7 +26,7 @@
                                 <th scope="col">Size</th>
                                 <th scope="col">Color</th>
                                 <th scope="col">Number</th>
-                                <th scope="col">Option</th>
+                                <th scope="col">Action</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -39,9 +39,18 @@
                                 <td>{{$product->color}}</td>
                                 <td>{{$product->number}}</td>
                                 <td>
-                                	<button>add</button>
-                                	<button>minus</button>
-                                	<button>delete</button>
+                                	<form action="" method="">
+                                		@csrf
+                                		<button>add</button>
+                                	</form>
+                                	<form action="" method="">
+                                		@csrf
+                                		<button>minus</button>
+                                	</form>
+                                	<form action="" method="">
+                                		@csrf
+                                		<button>delete</button>
+                                	</form>
                                 </td>
                              @endforeach
                              </tr>
