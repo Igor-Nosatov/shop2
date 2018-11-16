@@ -20,7 +20,7 @@ class CreateCartModel extends Migration
             $table->float('price');
             $table->string('size');
             $table->string('color');
-            $table->string('number');
+            $table->bigInteger('number');
             $table->unsignedInteger('products_id');
             $table->foreign('products_id')->references('id')->on('products');
             $table->timestamps();

@@ -49,22 +49,20 @@ class CartController extends Controller
     
        public function add($id)
     { 
-        $cart_product = Cart::find( $id );
-        $cart_product->number += 1;
+        $cart_product = Cart::find($id);
+        $cart_product->increment('number', 1);
         $cart_product->save();
         return redirect()->back();
     }
-
        public function minus($id)
      {
-        $cart_product = Cart::find( $id );
-        $cart_product->number -= 1;
+        $cart_product = Cart::find($id);
+        $cart_product->decrement('number', 1);
         $cart_product->save();
         return redirect()->back();
      }
     
-
-        public function destroy($id)
+        public function destroy( $id)
     {
         $cart_product = Cart::find($id);
         $cart_product->delete();

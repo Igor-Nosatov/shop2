@@ -44,7 +44,7 @@
                                 <td>
                                   <form action= "{{ route('cart.add', $product->id) }}" method= "post">
                                        @csrf
-                                       {{ method_field('UPDATE') }}
+                                       {{ method_field('PUT')}}
                                         <button type= "submit" class="btn btn-sm btn-info">  
                                            <i class="fas fa-plus"></i>
                                         </button>
@@ -53,7 +53,7 @@
                                 <td>
                                 <form action= "{{ route('cart.minus', $product->id) }}" method= "post">
                                        @csrf
-                                       {{ method_field('UPDATE') }}
+                                       {{ method_field('PUT')}}
                                       <button type= "submit" class="btn btn-sm btn-warning">  
                                         <i class="fas fa-minus"></i>
                                       </button>
