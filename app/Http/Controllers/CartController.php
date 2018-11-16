@@ -46,10 +46,23 @@ class CartController extends Controller
 
         return redirect()->back();
     }
-
     
+       public function add($id)
+    { 
+        $cart_product = Cart::find( $id );
+        $cart_product->number += 1;
+        $cart_product->save();
+        return redirect()->back();
+    }
 
-
+       public function minus($id)
+     {
+        $cart_product = Cart::find( $id );
+        $cart_product->number -= 1;
+        $cart_product->save();
+        return redirect()->back();
+     }
+    
 
         public function destroy($id)
     {

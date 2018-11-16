@@ -16,7 +16,8 @@ Route::resource('review','ReviewController');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/cart/save','CartController@store')->name('cart.store');
-//Route::get('/cart', 'CartController@edit')->name('cart.edit');
+Route::post('/cart/add/{product}', 'CartController@add')->name('cart.add');
+Route::post('/cart/minus/{product}', 'CartController@minus')->name('cart.minus');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
 

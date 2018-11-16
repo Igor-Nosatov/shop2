@@ -34,7 +34,7 @@
           <div class="header-ctn">
             <div>
               <a href="#">
-                <i class="fa fa-heart-o"></i>
+                <i class="fas fa-grin-beam"></i>
                 <span>Your Wishlist</span>
                 <!--<div class="qty"></div>-->
               </a>
