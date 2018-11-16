@@ -10,7 +10,7 @@
 					<div class="col-md-12">
 						<h3 class="breadcrumb-header">Checkout</h3>
 						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
+							<li><a href="{{route('home')}}">Home</a></li>
 							<li class="active">Checkout</li>
 						</ul>
 					</div>

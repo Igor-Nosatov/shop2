@@ -7,7 +7,13 @@ use App\Product;
 use App\Cart;
 
 class CartController extends Controller
-{
+{   
+    public function index()
+    { 
+      $cart_product = Cart::get();
+      return view('pages.cart',compact('cart_product'));
+    }
+     
     public function store(Request $request) { 
 
         $this->validate($request, [
