@@ -6,34 +6,20 @@
       <div class="row">
         <div class="col-md-5 col-md-push-2">
           <div id="product-main-img">
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
+            @for ($i = 0; $i < 4; $i++)
+               <div class="product-preview">
+                  <img src="{{asset($products->image)}}" alt="">
+               </div>
+            @endfor
           </div>
         </div>
         <div class="col-md-2  col-md-pull-5">
           <div id="product-imgs">
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
-            <div class="product-preview">
-              <img src="{{asset($products->image)}}" alt="">
-            </div>
+             @for ($i = 0; $i < 4; $i++)
+               <div class="product-preview">
+                  <img src="{{asset($products->image)}}" alt="">
+               </div>
+            @endfor
           </div>
         </div>
         <div class="col-md-5">

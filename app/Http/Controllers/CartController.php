@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Cart;
 
@@ -56,9 +57,7 @@ class CartController extends Controller
     }
        public function minus($id)
      {
-        $cart_product = Cart::find($id);
-        $cart_product->decrement('number', 1);
-        $cart_product->save();
+        $cart_product = DB::table('cart')->whereId($id)->update(['number' => DB::raw('GREATEST(number - 1, 0)')]);
         return redirect()->back();
      }
     

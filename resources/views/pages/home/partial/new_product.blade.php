@@ -1,12 +1,9 @@
 
 
 <div class="section">
-			<!-- container -->
 			<div class="container">
-				<!-- row -->
 				<div class="row">
              <div class="col-md-12">
-					<!-- section title -->
           <div class="col-md-12">
             <div class="section-title">
               <h3 class="title">New Products </h3>
@@ -15,17 +12,14 @@
               </div>
             </div>
           </div>
-					<!-- /section title -->
-
-					<!-- Products tab & slick -->
           <div class="col-md-12">
             <div class="row">
               <div class="products-tabs">
-                <!-- tab -->
+               
                 <div id="tab1" class="tab-pane active">
                   <div class="products-slick" data-nav="#slick-nav-1">
                    
-                    <!-- product -->
+                   
                     @foreach($product_category1 as $product)
                     <div class="product">
                       <div class="product-img">
@@ -42,11 +36,6 @@
                         <h4 class="product-price">{{ $product->price }}<del class="product-old-price">$990.00</del></h4>
                         <div class="product-rating">
                         </div>
-                        <div class="product-btns">
-                          <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                          <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                          <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                        </div>
                       </div>
                       <div class="add-to-cart">
                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
@@ -57,17 +46,10 @@
                   </div>
                   <div id="slick-nav-1" class="products-slick-nav"></div>
                 </div>
-                <!-- /tab -->
+    
               </div>
             </div>
           </div>
-					<!-- Products tab & slick -->
-
 				</div>
-				<!-- /row -->
 			</div>
-
-
-
-			<!-- /container -->
 </div>

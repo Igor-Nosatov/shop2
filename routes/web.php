@@ -20,4 +20,4 @@ Route::put('/cart/add/{id}', 'CartController@add')->name('cart.add');
 Route::put('/cart/minus/{id}', 'CartController@minus')->name('cart.minus');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
-
+Route::get('/checkout', 'CheckoutController@index')->name('checkout');
