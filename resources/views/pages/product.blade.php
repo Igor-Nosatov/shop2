@@ -111,7 +111,7 @@
             </div>
             <div class="product-body">
               <p class="product-category">{{$pr->category->name }}</p>
-              <h3 class="product-name"><a href="#">{{$pr->name }}</a></h3>
+              <h3 class="product-name"><a href="{{route('product.show', $product->id)}}">{{$pr->name }}</a></h3>
               <h4 class="product-price">${{$pr->price }} <del class="product-old-price">$990.00</del></h4>
               <div class="product-rating">
               </div>

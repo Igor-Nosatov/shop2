@@ -17,35 +17,39 @@
 		<div class="section">
 			<div class="container">
 				<div class="row">
+					<form action="{{ route('checkout.store') }}" method = "post">
+						@csrf
 					<div class="col-md-7">
 						<div class="billing-details">
 							<div class="section-title">
 								<h3 class="title">Billing address</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
+								<input class="input" type="text" name="first_name" placeholder="First Name" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
+								<input class="input" type="text" name="last_name" placeholder="Last Name" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="email" name="email"
+								placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="address" placeholder="Address" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
+								<input class="input" type="text" name="city" placeholder="City" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
+								<input class="input" type="text" name="country" placeholder="Country" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+								<input class="input" type="text" name="zip_code" placeholder="ZIP Code" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
-							</div>				
+								<input class="input" type="text" name="telephone" placeholder="Telephone" required>
+							</div>	
+
 						</div>
 					</div>
 
@@ -78,15 +82,12 @@
 								<div><strong class="order-total">${{$total_price}}</strong></div>
 							</div>
 						</div>
-						<div class="input-checkbox">
-							<input type="checkbox" id="terms">
-							<label for="terms">
-								<span></span>
-								I've read and accept the <a href="#">terms & conditions</a>
-							</label>
-						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+						
+		      <input type="hidden" name="total_price" 
+		               value="{{$total_price }}" required>
+						<button type="submit" class="primary-btn order-submit">Place order</button>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>

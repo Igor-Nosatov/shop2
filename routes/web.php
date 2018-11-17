@@ -21,3 +21,4 @@ Route::put('/cart/minus/{id}', 'CartController@minus')->name('cart.minus');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+Route::post('/checkout/save','CheckoutController@store')->name('checkout.store');

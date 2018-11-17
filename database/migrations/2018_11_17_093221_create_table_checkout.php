@@ -15,15 +15,15 @@ class CreateTableCheckout extends Migration
     {
         Schema::create('checkout', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('adress');
-            $table->string('city');
-            $table->string('country');
-            $table->integer('zip_code');
-            $table->string('telephone');
-            $table->integer('total_price');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->integer('zip_code')->nullable();
+            $table->string('telephone')->nullable();
+            $table->double('total_price')->nullable();
             $table->timestamps();
         });
     }
