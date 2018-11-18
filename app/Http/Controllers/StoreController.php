@@ -8,7 +8,7 @@ use App\Category;
 use App\Brand;
 use App\Color;
 use App\Size;
-use Session;
+use App\Cart;
 
 class StoreController extends Controller
 {
@@ -19,9 +19,13 @@ public function index()
     	$brand_categories = Brand::with('product')->orderBy('name', 'desc')->get();
     	$top_selling = Product::where('price','>','500')->take(3)->with('category')->get();
     	$products = Product::with(['color', 'size','category'])->paginate(9);
+      
+      $total_price = Cart::query()->sum('price');
+      $total_item = Cart::query()->sum('number');
+      $cart_item = Cart::query()->get();
 
     	return view ("pages.store.store", compact(['categories',
-    		'brand_categories','top_selling','products']));
+    		'brand_categories','top_selling','products','total_price','total_item','cart_item']));
     }
 
    

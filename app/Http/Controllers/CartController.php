@@ -13,7 +13,10 @@ class CartController extends Controller
     public function index()
     { 
       $cart_product = Cart::get();
-      return view('pages.cart',compact('cart_product'));
+       $total_price = Cart::query()->sum('price');
+          $total_item = Cart::query()->sum('number');
+          $cart_item = Cart::query()->get();
+      return view('pages.cart',compact('cart_product','total_price','total_item','cart_item'));
     }
      
     public function store(Request $request) { 

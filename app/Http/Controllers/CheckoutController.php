@@ -12,9 +12,12 @@ class CheckoutController extends Controller
     {   
         
         $products = Cart::query()->orderBy('name', 'desc')->get();
-        $total_price = Cart::query()->sum('price');
+       $total_price = Cart::query()->sum('price');
+          $total_item = Cart::query()->sum('number');
+          $cart_item = Cart::query()->get();
+        
 
-    	return view('pages.checkout', compact(['products','total_price']));
+    	return view('pages.checkout', compact(['products','total_price','total_item','cart_item']));
     }
 
     public function store(Request $request) { 
