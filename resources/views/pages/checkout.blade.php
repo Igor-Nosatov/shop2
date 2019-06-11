@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 		<div id="breadcrumb" class="section">
 			<div class="container">
@@ -69,9 +68,7 @@
 									<div>{{ $product->name }}</div>
 									<div>${{ $product->price }}</div>
 								</div>
-
 								@endforeach
-								
 							</div>
 							<div class="order-col">
 								<div>Shiping</div>
@@ -81,10 +78,8 @@
 								<div><strong>TOTAL</strong></div>
 								<div><strong class="order-total">${{$total_price}}</strong></div>
 							</div>
-						</div>
-						
-		      <input type="hidden" name="total_price" 
-		               value="{{$total_price }}" required>
+						</div>				
+		                <input type="hidden" name="total_price"  value="{{$total_price }}" required>
 						<button type="submit" class="primary-btn order-submit">Place order</button>
 					</div>
 					</form>
