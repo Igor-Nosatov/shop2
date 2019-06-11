@@ -1,18 +1,13 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
-class Size extends Model
-{
- 
-  protected $fillable = ['name','product_id'];
-
-  public function product()
-  {
-    return $this->belongsToMany('App\Product');
-  
-  }
-
+class Size extends Model {
+    
+    protected $fillable = ['name', 'product_id'];
+    
+    public function product() 
+    {
+        return $this->belongsToMany('App\Product');
+    }
 }
